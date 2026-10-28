@@ -23,7 +23,7 @@
 #include <unistd.h>
 #endif
 
-#if defined(__APPLE__) || defined(DT295_CAPTURE_TESTING)
+#if !defined(_WIN32) || defined(DT295_CAPTURE_TESTING)
 typedef struct {
     usb_backend *usb;
     dt295_stream *stream;
@@ -342,9 +342,9 @@ static int capture_status(ts_output *diag, unsigned phase, uint64_t packets, uin
 
 #endif
 int dt295_capture_run(const dt295_capture_config *cfg) {
-#if !defined(__APPLE__) && !defined(DT295_CAPTURE_TESTING)
+#if defined(_WIN32) && !defined(DT295_CAPTURE_TESTING)
     (void)cfg;
-    fprintf(stderr, "DT295 capture currently supports macOS terrestrial target 0 only\n");
+    fprintf(stderr, "DT295 capture currently supports POSIX terrestrial target 0 only\n");
     return 2;
 #else
     if (!cfg || !cfg->assets || !cfg->output)

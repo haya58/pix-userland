@@ -39,4 +39,4 @@ set +e
 ./pix-ts-legacy --model dt295 -c T27 --assets /nonexistent-pix-assets -o /dev/null >/dev/null 2>&1
 status=$?
 set -e
-case "$(uname -s)" in Darwin) [ "$status" -eq 10 ];; *) [ "$status" -eq 2 ];; esac
+case "$(uname -s)" in Darwin|Linux) [ "$status" -eq 10 ];; *) [ "$status" -eq 2 ];; esac
