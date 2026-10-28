@@ -181,7 +181,7 @@ static void usage(FILE *f) {
         f,
         "pix-ts " VERSION " — PIX-DT181-PU0 libusb TS receiver\n"
         "Usage: pix-ts --system terrestrial|bs|cs --channel N [options]\n"
-        "      --model MODEL   dt181 (default) or dt295 (macOS target 0)\n"
+        "      --model MODEL   dt181 (default) or dt295 (Linux/macOS target 0)\n"
         "  -c, --channel N       number or T27/BS01_0/CS02 (terrestrial 13..62, BS odd 1..23, CS even "
         "2..24)\n"
         "  -s, --system TYPE     terrestrial (default), bs, cs\n"
